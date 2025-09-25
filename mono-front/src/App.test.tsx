@@ -111,6 +111,25 @@ describe("App", () => {
     expect(readTheDocs).toHaveClass("read-the-docs");
   });
 
+  it("renders all button variants", () => {
+    render(<App />);
+
+    // Check if all the example buttons are rendered
+    expect(
+      screen.getByRole("button", { name: /primary small/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /secondary medium/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /danger large/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /disabled/i })
+    ).toBeInTheDocument();
+    expect(screen.getByText("Loading...")).toBeInTheDocument();
+  });
+
   it("renders code element with correct content", () => {
     render(<App />);
 
